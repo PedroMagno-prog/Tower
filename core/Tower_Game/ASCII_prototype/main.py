@@ -1,5 +1,5 @@
-from Grid import create_grid_id, print_grid, fill_grid, Grid
-from Map import Tile, tiles
+from GridMap import *
+from Map_db import *
 import os
 import time
 import sys
@@ -9,14 +9,13 @@ sys.stdout.reconfigure(encoding='utf-8')
 def main():
     os.system('cls')
     # floor1 = Map(26, 31, )
-    x = 26
-    y = 31
     
-    grid_id = create_grid_id(x, y)
-    grid = fill_grid(grid_id, x, y)
+    first_level = Map(26, 31, "dungeon")
 
+    first_level.generate_map()
+    
     while True:
-        print_grid(grid)
+        first_level.print_map()
         time.sleep(0.5)
         print()
         input(">")
